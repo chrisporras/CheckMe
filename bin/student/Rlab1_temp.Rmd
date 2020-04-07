@@ -1,0 +1,112 @@
+---
+title: "R lab 1 for BIOS 20151"
+author: "Your Name"
+output:
+  html_document: default
+---
+
+Before starting work:
+* Read section 1.3 
+* Read section 2.3
+* Work through the R week 1 tutorial
+
+
+## Submitting:
+Submit this edited .Rmd file with your name in the title, through the R assignment 1 link on Canvas. If you submit before the feedback deadline of the end of Friday April 10, you will receive feedback and can resubmit by the end of next Wednesday April 15. 
+
+
+## Grading:
+You will be graded on completion of each task until it produces the correct result. 
+
+
+##  Part 1: calculations using variables
+
+In the following tasks you will translate mathematical models into R commands and make the computer perform calculations. The first step is to give descriptive names to these variables (instead of single letters!), and then use these variables to calculate the predictions of the models.
+
+
+1. Take the model of a heart pumping with a constant rate, where V is the total volume of blood pumped by the heart over time, S is the stroke volume, $R$ is the heart rate and $t$ is time:
+
+
+$$ 
+V = SRt
+$$ 
+
+
+For a heart beating at 60 beats per minute with stroke volume of 75 ml over 80 minutes, create variables for the stroke volume, heart rate, and time (come up with your own descriptive names). Calculate the total volume pumped by the heart by turning the equation into a line of R code, assigning the result to a variable, and print out the result. ANSWER: 360000 ml
+
+```{r}
+# THIS IS A COMMENT. YOUR CODE GOES HERE 
+```
+
+
+2. Consider an infectious disease that spreads through a new population at an exponential rate r (per day). If there are initially I infected individuals, then after t days the model predicts the total number of infected to be T:
+
+$$ 
+T = I(1+r)^t
+$$
+
+If the initial number of infected is 20, and the rate of spread is 8% per day, calculate the total number of infected after 30 days by assigning these values to informatively named variables,  turning the equation above into a line of R code,  assigning the result to a variable, and print out the result. ANSWER: 201.2531 infected
+
+```{r}
+# THIS IS A COMMENT. YOUR CODE GOES HERE 
+```
+
+
+3. The logistic model for a population P that is limited to a certain number, called carrying capacity K (population size), can be written as follows, with t time (years), r the intrinsic growth rate (per year) and A a dimensionless constant.
+
+$$
+P= \frac{K}{1 + A e^{-rt}}
+$$
+Let K be 30000, r be 0.08, and A be 29, assign these values to informatively named variables. Calculate the population size after 25 years by turning the equation above into a line of R code,  assigning the result to a variable, and print out the result. ANSWER: 6091.713 individuals
+
+
+```{r}
+# THIS IS A COMMENT. YOUR CODE GOES HERE 
+```
+
+
+
+## Part 2: vector calculations and plotting
+
+1. Copy your script from part 1, question 1 and modify the line that assigns the time variable to instead assign it a vector from 0 to 1440 minutes (one for each minute); keep the same values for stroke volume and heart rate. Then your calculation for total volume should produce a vector of the same length as time. Print out the value of the vector after 3 hours (72 minutes), keeping in mind that it is the 73rd element of the vector. ANSWER: 324000 ml
+
+```{r}
+# THIS IS A COMMENT. YOUR CODE GOES HERE 
+```
+
+Plot the volume vs time using the type line with black line color and label your axes. Then change the heart rate to 120 beats per minute and re-calculate the total blood volume with the new parmamer. Overlay that plot on top of the previous one using the lines() funcion with red line color. Based on the plots, describe what kind of function is this model, and what is the graphical difference between the two graphs.
+
+```{r}
+# THIS IS A COMMENT. YOUR CODE GOES HERE 
+```
+
+TYPE YOUR ANSWERS HERE
+
+2. Copy your script from part 1, question 2 and modify the line that assigns the time variable to instead assign it a vector from 0 to 60 days (one for each day); keep the same values for all the other variables. Then your calculation for total number of infected should produce a vector of the same length as time. Print out the value of the vector after 10 days, keeping in mind that it is the 11th element of the vector. ANSWER: 43.1785 infected
+
+```{r}
+# THIS IS A COMMENT. YOUR CODE GOES HERE 
+```
+
+
+Plot the total infected population vs time using the type line with black line color and label your axes. Then change the infection rate to 10% and recalculate the infection numbers with the new parameter. Overlay that plot on top of the previous one using the lines() function with red line color. Based on the plots, report what are the *approximate* doubling times for the number of infectious for the two different infection rates.
+
+```{r}
+# THIS IS A COMMENT. YOUR CODE GOES HERE 
+```
+
+TYPE YOUR ANSWERS HERE
+
+3. Copy your script from part 1, question 3 and modify the line that assigns the time variable to instead assign it a vector from 0 to 100 years (one for each year); keep the same values for all the other variables. Then your calculation for the population should produce a vector of the same length as time. Print out the value of the vector after 15 years, keeping in mind that it is the 16th element of the vector. ANSWER: 3081.781 individuals
+
+```{r}
+# THIS IS A COMMENT. YOUR CODE GOES HERE 
+```
+
+Plot the population vs time using the type line with black line color and label your axes. Then change the parameter A to 2 and overlay that plot on top of the previous one using the lines() function with red line color. Report the difference between the two plots in terms of  their initial values and their final values.
+
+```{r}
+# THIS IS A COMMENT. YOUR CODE GOES HERE 
+```
+
+TYPE YOUR ANSWERS HERE
