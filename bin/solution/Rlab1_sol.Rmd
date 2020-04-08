@@ -24,7 +24,8 @@ You will be graded on completion of each task until it produces the correct resu
 setwd("../../test/")
 source('initialize_solution.R')
 source('solution.R')
-source('check.R')
+source('publish_solutions.R')
+
 initialize_solution()
 
 # TODO: make like >>
@@ -57,6 +58,18 @@ print(Vol)
 
 solution(label="part1_question1",
          Vol)
+
+
+###
+# What students see:
+
+# answer(Vol)
+
+# plot(x,y, type="l", is.answer? = TRUE)
+
+# check()
+
+###
 ```
 
 
@@ -195,6 +208,16 @@ plot(t,P,type='l',lwd=2, xlab = 'time (years)', ylab = 'population')
 solution(label="part2_question3_plot1",
          t,P)
 
+####
+
+# solution(plot(t,P))
+
+# plot(t,P, solution = TRUE)
+
+
+#### 
+
+
 A <- 2
 P <- K/(1+A* exp(-r*t)) # population
 lines(t,P,col=2,lwd=2)  
@@ -205,10 +228,9 @@ solution(label="part2_question3_plot2",
 The two plots have different initial values (100 for black and 1000 for red) and converge to the same final value. 
 
 ```{r}
-
-## TODO: publish_solution() to write df
-
-#publish_solutions()
+# write solutions df to file
+publish_solutions(path = "../../test/",
+                  file = "lab1_sol.RData")
 ```
 
 

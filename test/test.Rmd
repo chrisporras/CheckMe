@@ -1,27 +1,37 @@
 ---
-title: "Untitled"
+title: "test.Rmd"
 author: "Christian Porras"
-date: "4/7/2020"
+date: "4/6/2020"
 output: html_document
 ---
 ```{r}
-L3 <- LETTERS[1:3]
-fac <- sample(L3, 10, replace = TRUE)
-(d <- data.frame(x = 1, y = 1:10, fac = fac))
-## The "same" with automatic column names:
-data.frame(1, 1:10, sample(L3, 10, replace = TRUE))
+## load package
+source('initialize_check.R')
+source('answer.R')
+source('check.R')
+initialize_check()
 
-is.data.frame(d)
+# TODO: make like >>
+#library(CheckMe)
+```
+
+
+```{r}
+## TODO:
+# detect when plot() or lines() are called
+
+## SOL? testwhat check_function()
+
+x <- 1:100
+
+y <- x^2
+
+plot(x,y,type = 'l')
 
 ```
 
 ```{r}
-label = "part1_question1"
-ans = 420
-df <- data.frame(question = label, 
-                   answer = ans,
-                 stringsAsFactors = FALSE)
-
-df
+# query data.tables
+# solution_table[question == 'part2_question1_plot1']$answer[[1]]
 ```
 
