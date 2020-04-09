@@ -6,6 +6,9 @@ output: html_document
 ---
 ```{r}
 ## load package
+
+rm(list=ls())
+
 source('initialize_check.R')
 source('answer.R')
 source('check.R')
@@ -22,16 +25,69 @@ initialize_check()
 
 ## SOL? testwhat check_function()
 
-x <- 1:100
-
-y <- x^2
-
-plot(x,y,type = 'l')
-
 ```
+
+
+```{r}
+answer_plot <- function(label, FUN){
+  
+  
+  eval(FUN) # call plot() as normal
+  x <- deparse(substitute(FUN)[[2]]) # what is plotted on the x axis 
+  y <- deparse(substitute(FUN)[[3]])# what is plotted on the y axis
+  # from variable names of plotted args,
+  # pull values from env and store with answer()
+  if ("x" %in% ls(envir = .GlobalEnv)) {
+    x <- get("x", envir = .GlobalEnv)
+  } else {
+    x
+  }
+  
+  if ("y" %in% ls(envir = .GlobalEnv)) {
+    y<- get("y", envir = .GlobalEnv)
+  } else {
+    y
+  }
+  answer(label = label, x,y)
+}
+```
+
+
+```{r}
+x<- 1:10
+y<- x^2
+
+answer(label="test_double_list_answer",x,y)
+
+answer(label = "test_plot", plot(x,y))
+```
+
+
+
+
+
 
 ```{r}
 # query data.tables
 # solution_table[question == 'part2_question1_plot1']$answer[[1]]
+```
+
+```{r}
+
+test <- function(...){
+  if (sum(grep("(", deparse(substitute(...)), fixed = TRUE))){
+    print("yep")
+  } else{
+    print("nop")
+  }
+}
+
+test(plot(x,y))
+```
+
+```{r}
+
+args <- substitute(plot(x,y))
+sum(grep("(", deparse(args), fixed = TRUE))
 ```
 

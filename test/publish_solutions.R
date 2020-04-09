@@ -1,4 +1,4 @@
 publish_solutions <- function(path = getwd(), 
                               file = "solution_table.RData"){
-  save(solution_table, file = file)
+  save(check_table, file = file)
 }
