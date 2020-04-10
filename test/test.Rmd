@@ -72,15 +72,15 @@ answer(label = "test_plot", plot(x,y))
 # solution_table[question == 'part2_question1_plot1']$answer[[1]]
 ```
 
-```{r}
-```
 
 ```{r}
 x<-1:10
 y<-1:10
 
 test <- function(x="",...){
-  arg_list <- list(c(...))
+  arg_list <- list(...)
+  print(arg_list[1])
+  print(c(arg_list[2:length(arg_list)]))
 }
 
 test(x="yo","plot(x,y)","a","b","c")

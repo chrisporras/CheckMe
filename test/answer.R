@@ -1,6 +1,7 @@
 answer <- function(label="", ...){
   args <- substitute(...)
   # if a plot() is called from inside
+  # call looks like : answer(label="", plot(x, y))
   if (grepl("(", deparse(args), fixed = TRUE)){
     eval(...) # call plot() as normal
     # variable name plotted on x axis
@@ -19,25 +20,29 @@ answer <- function(label="", ...){
     } else {
       print(paste("Unassigned variable",y))
     }
+    ## store function call
     graphical_args <- deparse(args)
     
-    
     # store values 
-    answer(label = label,graphical_args = graphical_args
-          , x,y)
+    check_table <<- rbind(check_table,
+                          list(question = label,
+                               answer = list(x,y),
+                               fun = graphical_args
+                          ),
+                          stringsAsFactors = FALSE
+    )
   } else { # if a plot() is not called
     # Builds a data table from solutions
     # fills in student answers
+    # call looks like : answer(label="", a,b,c,...)
     answers <- list(...)
-    
-    graphical_args <- NA
     
     #### TODO: prohobit copying rows and instead allow replacement ####
     
     check_table <<- rbind(check_table,
                              list(question = label,
-                                  answer = list(c(answers)),
-                                  func_call = graphical_args
+                                  answer = answers,
+                                  fun = NA
                              ),
                              stringsAsFactors = FALSE
     )
