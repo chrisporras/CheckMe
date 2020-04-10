@@ -1,7 +1,7 @@
 answer <- function(label="", ...){
   args <- substitute(...)
   # if a plot() is called from inside
-  if (sum(grep("(", deparse(args), fixed = TRUE))){
+  if (grepl("(", deparse(args), fixed = TRUE)){
     eval(...) # call plot() as normal
     # variable name plotted on x axis
     x <- deparse(args[[2]]) 
@@ -19,22 +19,27 @@ answer <- function(label="", ...){
     } else {
       print(paste("Unassigned variable",y))
     }
+    graphical_args <- deparse(args)
+    
+    
     # store values 
-    answer(label = label, x,y)
+    answer(label = label,graphical_args = graphical_args
+          , x,y)
   } else { # if a plot() is not called
     # Builds a data table from solutions
     # fills in student answers
     answers <- list(...)
-    for(i in answers){
-      
-      #### TODO: prohobit copying rows and instead allow replacement ####
-      
-      check_table <<- rbind(check_table,
-                               list(question = label,
-                                    answer = list(i)
-                               ),
-                               stringsAsFactors = FALSE
-      )
-    }
+    
+    graphical_args <- NA
+    
+    #### TODO: prohobit copying rows and instead allow replacement ####
+    
+    check_table <<- rbind(check_table,
+                             list(question = label,
+                                  answer = list(c(answers)),
+                                  func_call = graphical_args
+                             ),
+                             stringsAsFactors = FALSE
+    )
   }
 }

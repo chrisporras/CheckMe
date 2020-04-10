@@ -67,8 +67,6 @@ answer(label="part1_question1",
 
 # answer(Vol)
 
-# plot(x,y, type="l", is.answer? = TRUE)
-
 # answer(plot(x,y))
 
 # check()

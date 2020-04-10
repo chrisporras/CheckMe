@@ -73,6 +73,21 @@ answer(label = "test_plot", plot(x,y))
 ```
 
 ```{r}
+```
+
+```{r}
+x<-1:10
+y<-1:10
+
+test <- function(x="",...){
+  arg_list <- list(c(...))
+}
+
+test(x="yo","plot(x,y)","a","b","c")
+```
+
+
+```{r}
 
 test <- function(...){
   if (sum(grep("(", deparse(substitute(...)), fixed = TRUE))){
@@ -86,8 +101,24 @@ test(plot(x,y))
 ```
 
 ```{r}
+plot_str <- deparse(substitute(plot(x,y,xlab="")))
+no_space <- sub(" ","",plot_str)
+no_space
+```
 
-args <- substitute(plot(x,y))
-sum(grep("(", deparse(args), fixed = TRUE))
+
+```{r}
+
+### Parsing  plot() call arguments in answer() 
+
+# args <- substitute(plot(x,y,xlab="xlab",ylab="ylab"))
+# plot_str <- deparse(args)
+# 
+# no_space <- sub(" ","",plot_str)
+# 
+# split_list <- strsplit(no_space,split="[(=]+")[[1]]
+# 
+# 
+# split_list[c(grep("\"",split_list,fixed = TRUE))]
 ```
 
