@@ -9,6 +9,8 @@ output: html_document
 
 rm(list=ls())
 
+
+source("loadRData.R")
 source('initialize_check.R')
 source('answer.R')
 source('check.R')
@@ -20,105 +22,12 @@ initialize_check()
 
 
 ```{r}
-## TODO:
-# detect when plot() or lines() are called
-
-## SOL? testwhat check_function()
-
-```
-
-
-```{r}
-answer_plot <- function(label, FUN){
-  
-  
-  eval(FUN) # call plot() as normal
-  x <- deparse(substitute(FUN)[[2]]) # what is plotted on the x axis 
-  y <- deparse(substitute(FUN)[[3]])# what is plotted on the y axis
-  # from variable names of plotted args,
-  # pull values from env and store with answer()
-  if ("x" %in% ls(envir = .GlobalEnv)) {
-    x <- get("x", envir = .GlobalEnv)
-  } else {
-    x
-  }
-  
-  if ("y" %in% ls(envir = .GlobalEnv)) {
-    y<- get("y", envir = .GlobalEnv)
-  } else {
-    y
-  }
-  answer(label = label, x,y)
-}
-```
-
-
-```{r}
-x<- 1:10
-y<- x^2
-
-answer(label="test_double_list_answer",x,y)
-
-answer(label = "test_plot", plot(x,y))
-```
-
-
-
-
-
-
-```{r}
-# query data.tables
-# solution_table[question == 'part2_question1_plot1']$answer[[1]]
-```
-
-
-```{r}
-x<-1:10
-y<-1:10
-
-test <- function(x="",...){
-  arg_list <- list(...)
-  print(arg_list[1])
-  print(c(arg_list[2:length(arg_list)]))
-}
-
-test(x="yo","plot(x,y)","a","b","c")
-```
-
-
-```{r}
-
-test <- function(...){
-  if (sum(grep("(", deparse(substitute(...)), fixed = TRUE))){
-    print("yep")
-  } else{
-    print("nop")
-  }
-}
-
-test(plot(x,y))
+plotted <-check_table$fun
+split_plot<- strsplit(plotted,split = "\\(")
+split_plot
 ```
 
 ```{r}
-plot_str <- deparse(substitute(plot(x,y,xlab="")))
-no_space <- sub(" ","",plot_str)
-no_space
-```
-
-
-```{r}
-
-### Parsing  plot() call arguments in answer() 
-
-# args <- substitute(plot(x,y,xlab="xlab",ylab="ylab"))
-# plot_str <- deparse(args)
-# 
-# no_space <- sub(" ","",plot_str)
-# 
-# split_list <- strsplit(no_space,split="[(=]+")[[1]]
-# 
-# 
-# split_list[c(grep("\"",split_list,fixed = TRUE))]
+strsplit(x = "plot(..",split = "\\(")
 ```
 

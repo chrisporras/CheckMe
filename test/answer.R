@@ -1,4 +1,19 @@
-answer <- function(label="", ...){
+answer <- function(...,label=""){
+  ## TODO: Write validations to prevent copying rows.
+  # FIX: answer() funcs can't be added or removed 
+  # will break check()
+  
+  
+  ## If label is undefined and solutions are loaded
+  if (exists("solutions_table")){
+  ## Grab label from solutions table
+    label_list = solutions_table$question
+    # use index of question
+    current_question = length(check_table$question)+1
+    label = label_list[current_question]
+    
+  }
+  
   args <- substitute(...)
   # if a plot() is called from inside
   # call looks like : answer(label="", plot(x, y))
@@ -35,6 +50,7 @@ answer <- function(label="", ...){
     # Builds a data table from solutions
     # fills in student answers
     # call looks like : answer(label="", a,b,c,...)
+    
     answers <- list(...)
     
     #### TODO: prohobit copying rows and instead allow replacement ####

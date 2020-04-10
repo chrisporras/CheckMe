@@ -58,8 +58,8 @@ Time <- 80 # in minutes
 Vol <- StrokeV*HeartRate*Time
 print(Vol)
 
-answer(label="part1_question1",
-         Vol)
+answer(Vol,
+       label="part1_question1")
 
 
 ###
@@ -90,8 +90,8 @@ t <- 30 # number of days
 Tot <- Init*(1+r)^t # total number of infected
 print(Tot)
 
-answer(label="part1_question2",
-         Tot)
+answer(Tot,
+       label="part1_question2")
 ```
 
 
@@ -111,8 +111,8 @@ t <- 25 # years
 P <- K/(1+A*exp(-r*t)) # population
 print(P)
 
-answer(label="part1_question3",
-         P)
+answer(P,
+       label="part1_question3")
 ```
 
 
@@ -128,16 +128,16 @@ Time <- 0:1440 # in minutes
 Vol <- StrokeV*HeartRate*Time
 print(Vol[73])
 
-answer(label="part2_question1",
-         Vol[73])
+answer(Vol[73],
+       label="part2_question1")
 ```
 
 Plot the volume vs time using the type line with black line color and label your axes. Then change the heart rate to 120 beats per minute and re-calculate the total blood volume with the new parmamer. Overlay that plot on top of the previous one using the lines() funcion with red line color. Based on the plots, describe what kind of function is this model, and what is the graphical difference between the two graphs.
 
 ```{r}
 
-answer(label="part2_question1_plot1",
-         plot(Time,Vol,type='l',lwd=2, xlab = 'time (min)', ylab = 'Blood volume (ml)')
+answer(plot(Time,Vol,type='l',lwd=2, xlab = 'time (min)', ylab = 'Blood volume (ml)'),
+       label="part2_question1_plot1"
 )
 
 
@@ -147,8 +147,8 @@ Vol <- StrokeV*HeartRate*Time
 
 ## TODO make check_plot() to evaluate function calls
 
-answer(label="part2_question1_plot2",
-         lines(Time,Vol,col=2,lwd=2) )
+answer(lines(Time,Vol,col=2,lwd=2),
+       label="part2_question1_plot2")
 
 ```
 
@@ -163,24 +163,24 @@ t <- 0:60 # number of days
 Tot <- Init*(1+r)^t # total number of infected
 print(Tot[11])
 
-answer(label="part2_question2",
-         Tot[11])
+answer(Tot[11],
+       label="part2_question2")
 ```
 
 Plot the total infected population vs time using the type line with black line color and label your axes. Then change the infection rate to 10% and recalculate the infection numbers with the new parameter. Overlay that plot on top of the previous one using the lines() function with red line color. Based on the plots, report what are the *approximate* doubling times for the number of infectious for the two different infection rates.
 
 ```{r}
 
-answer(label="part2_question2_plot1",
-         plot(t,Tot,type='l',lwd=2, xlab = 'time (days)', ylab = 'number of infected')
+answer(plot(t,Tot,type='l',lwd=2, xlab = 'time (days)', ylab = 'number of infected'),
+       label="part2_question2_plot1"
 )
 
 r <- 0.1
 Tot <- Init*(1+r)^t # total number of infected
 
 
-answer(label="part2_question2_plot2",
-         lines(t,Tot,col=2,lwd=2) )
+answer(lines(t,Tot,col=2,lwd=2),
+       label="part2_question2_plot2")
 
 
 ```
@@ -197,16 +197,16 @@ t <- 0:100 # years
 P <- K/(1+A* exp(-r*t)) # population
 print(P[16])# THIS IS A COMMENT. YOUR CODE GOES HERE 
 
-answer(label="part2_question3",
-         P[16])
+answer(P[16],
+       label="part2_question3")
 ```
 
 Plot the population vs time using the type line with black line color and label your axes. Then change the value of  A to 2 and overlay and recalculate the population vector with the new parameter value. Overlay plot on top of the previous one using the lines() function with red line color. Report the difference between the two plots in terms of their initial values and their final values.
 
 ```{r}
 
-answer(label="part2_question3_plot1",
-         plot(t,P,type='l',lwd=2, xlab = 'time (years)', ylab = 'population'))
+answer(plot(t,P,type='l',lwd=2, xlab = 'time (years)', ylab = 'population'),
+       label="part2_question3_plot1")
 
 ####
 
@@ -221,8 +221,8 @@ answer(label="part2_question3_plot1",
 A <- 2
 P <- K/(1+A* exp(-r*t)) # population
 
-answer(label="part2_question3_plot2",
-         lines(t,P,col=2,lwd=2))
+answer(lines(t,P,col=2,lwd=2),
+       label="part2_question3_plot2")
 ```
 The two plots have different initial values (100 for black and 1000 for red) and converge to the same final value. 
 
