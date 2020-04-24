@@ -11,20 +11,27 @@ Before starting work:
 * Work through the R week 1 tutorial
 
 ```{r}
-## load package
-rm(list=ls())
-
-source("loadRData.R")
-source('initialize_solution.R')
-source('answer.R')
-source('check.R')
-
-# loads table with solutions and initializes table for student answer
-initialize_solution(solutions_path = "lab1_sol.RData")
-
-# TODO: make like >>
-#library(CheckMe)
+# ## load package
+# rm(list=ls())
+# 
+# source("loadRData.R")
+# source('initialize_solution.R')
+# source('answer.R')
+# source('check.R')
+# 
+# # loads table with solutions and initializes table for student answer
+# initialize_solution(solutions_path = "lab1_sol.RData")
+# 
+# # TODO: make like >>
+# #library(CheckMe)
 ```
+
+```{r}
+library("CheckMe")
+
+initialize_solution(solutions_path = "../inst/extdata/lab1_sol.RData")
+```
+
 
 ## Submitting:
 Submit this edited .Rmd file with your name in the title, through the R assignment 1 link on Canvas. If you submit before the feedback deadline of the end of Friday April 10, you will receive feedback and can resubmit by the end of next Wednesday April 15. 
@@ -125,7 +132,7 @@ answer(plot(volume, time.pm, xlab = "total volume", ylab = "time per minute", t=
 
 heart.rate <- 120
 volume <- stroke.vol*heart.rate*time.pm
-print(volume)
+#print(volume)
 
 answer(lines(volume, time.pm, col=2))
 ```

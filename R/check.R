@@ -18,17 +18,5 @@ check <- function(){
   result <<- data.table::data.table()
   result <- cbind(check_table, matches_solution = grades)
 
-  # Remove fun column in check_table -- column that records function calls
-  # result <- result[,fun:=NULL] ## FIXME breaks when used as package
-
-  ## FIXME "matches_solution undefined"
-  # if(mean(result$matches_solution)==1){
-  #   print("All answers match solutions!")
-  # } else {
-  #   print("Not all answers match solutions...")
-  #   print("The answers to the following questions are incorrect:")
-  #   print(result[matches_solution != TRUE]$question)
-  # }
-
   View(result)
 }

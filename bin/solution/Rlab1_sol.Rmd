@@ -1,7 +1,7 @@
 ---
 title: "R lab 1 for BIOS 20151"
 author: "Dmitry Kondrashov"
-output:
+date: 1/1/11
   html_document: default
 ---
 
@@ -130,6 +130,9 @@ print(Vol[73])
 
 answer(Vol[73],
        label="part2_question1")
+
+
+
 ```
 
 Plot the volume vs time using the type line with black line color and label your axes. Then change the heart rate to 120 beats per minute and re-calculate the total blood volume with the new parmamer. Overlay that plot on top of the previous one using the lines() funcion with red line color. Based on the plots, describe what kind of function is this model, and what is the graphical difference between the two graphs.
@@ -151,6 +154,12 @@ answer(lines(Time,Vol,col=2,lwd=2),
        label="part2_question1_plot2")
 
 ```
+
+```{r}
+# answer(x,y,z,
+       # label="part3_question1")
+```
+
 
 The plots show two linear functions with different slopes, with red one growing faster than the red one.
 
