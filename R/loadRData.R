@@ -1,6 +1,10 @@
 #' @export
-loadRData <- function(file){
+loadRData <- function(file,url=FALSE){
   #loads an RData file, and returns it
-  load(file)
+  if(url){
+    load(url(file))
+  }else{
+    load(file)
+  }
   get(ls()[ls() != "file"])
 }
