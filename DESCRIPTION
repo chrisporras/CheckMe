@@ -1,13 +1,13 @@
 Package: CheckMe
-Title: R code Auto-grader
-Version: 0.0.0.9000
+Title: CheckMe
+Version: 0.0.1.0000
 Authors@R:
     person(given = "Christian",
            family = "Porras",
            role = c("aut", "cre"),
            email = "chrisporras1@gmail.com",
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: Introduces functions to set solutions and check code output based on those solutions.
+Description: R code auto-grader.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to
     pick a license
 Encoding: UTF-8

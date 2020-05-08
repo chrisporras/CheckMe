@@ -27,7 +27,7 @@ Before starting work:
 ```
 
 ```{r}
-#library("CheckMe")
+library("CheckMe")
 
 initialize_solution(solutions_path = "https://github.com/chrisporras/CheckMe/blob/master/inst/extdata/lab1_sol.RData?raw=true", url=TRUE)
 

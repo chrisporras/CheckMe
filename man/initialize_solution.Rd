@@ -4,7 +4,7 @@
 \alias{initialize_solution}
 \title{Initializes data tables}
 \usage{
-initialize_solution(solutions_path = "")
+initialize_solution(solutions_path = "", url = FALSE)
 }
 \value{
 Blank data table
