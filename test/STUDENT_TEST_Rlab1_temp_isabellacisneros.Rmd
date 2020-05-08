@@ -12,24 +12,24 @@ Before starting work:
 
 ```{r}
 # ## load package
-# rm(list=ls())
+rm(list=ls())
 # 
-# source("loadRData.R")
-# source('initialize_solution.R')
-# source('answer.R')
-# source('check.R')
-# 
-# # loads table with solutions and initializes table for student answer
+source("loadRData.R")
+source('initialize_solution.R')
+source('answer.R')
+source('check.R')
+
+# loads table with solutions and initializes table for student answer
 # initialize_solution(solutions_path = "lab1_sol.RData")
-# 
-# # TODO: make like >>
-# #library(CheckMe)
+
+# TODO: make like >>
+#library(CheckMe)
 ```
 
 ```{r}
-library("CheckMe")
+#library("CheckMe")
 
-initialize_solution(solutions_path = "../inst/extdata/lab1_sol.RData")
+initialize_solution(solutions_path = "https://github.com/chrisporras/CheckMe/blob/master/inst/extdata/lab1_sol.RData?raw=true", url=TRUE)
 ```
 
 
